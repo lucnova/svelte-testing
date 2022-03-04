@@ -24,7 +24,14 @@
 <button on:click={incrementAge}>+ 1</button>
 <!-- DATA BINDING: Por defecto  solo es una conexión de 1 lado (Salida) -->
 <!-- on:input => realizado cada que se cambie el valor -->
-<input type="text" value={name} on:input={handleNameChange} />
+<!-- esto emula el two way data binding -->
+<!-- <input type="text" value={name} on:input={handleNameChange} /> -->
+
+<!-- En caso de querer emular ese flow de datos de dos direcciones: -->
+<!-- bind => permite el two way data binding -->
+<input type="text" bind:value={name} />
+<!-- IMPORTANTE: Hay que ser muy especificos con la dirección del flow de datos; no abusar -->
+<!-- Para forms esta bien -->
 
 <style>
 	h1 {
