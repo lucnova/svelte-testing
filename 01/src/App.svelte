@@ -3,8 +3,9 @@
 	export let age;
 
 	// * Reactive Variables: Dollar Sign => Equivalente a los efectos de React.
+	// La primer variable indicada del lado derecho es la que hará los cambios automaticamente
 	$: uppercaseName = name.toUpperCase();
-	$: console.log(name);
+	$: console.log(age);
 
 	const incrementAge = () => {
 		age += 1;
