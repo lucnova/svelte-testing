@@ -2,9 +2,11 @@
 	export let name;
 	export let age;
 
-	// * REACTIVE VARIABLES: Dollar Sign => Equivalente a los efectos de React.
+	// * REACTIVE VARIABLES: ($:) => Equivalente a los efectos de React.
 	// La primer variable indicada del lado derecho es la que hará los cambios automaticamente
 	$: uppercaseName = name.toUpperCase();
+	// * NO es necesario instanciar con 'let' o 'const' la variable.
+	//	Es un decir: "$:(Recalcula Esto) = (Cuando las Variables Topadas en Línea Cambien)"
 	$: console.log(age);
 
 	const incrementAge = () => {
@@ -31,8 +33,8 @@
 <!-- bind => permite el two way data binding -->
 <input type="text" bind:value={name} />
 <!-- IMPORTANTE: Hay que ser muy especificos con la dirección del flow de datos; no abusar -->
-<!-- Para forms esta bien -->
 
+<!-- Para forms esta bien -->
 <style>
 	h1 {
 		color: purple;
