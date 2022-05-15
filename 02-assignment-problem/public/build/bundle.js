@@ -355,10 +355,10 @@ var app = (function () {
     			li3.textContent = "Put the h1 tag + output into a separate component to which you pass the user input";
     			add_location(h1, file, 0, 0, 0);
     			add_location(p, file, 2, 0, 21);
-    			add_location(li0, file, 5, 2, 55);
-    			add_location(li1, file, 6, 2, 127);
-    			add_location(li2, file, 7, 2, 173);
-    			add_location(li3, file, 10, 2, 284);
+    			add_location(li0, file, 5, 1, 54);
+    			add_location(li1, file, 6, 1, 125);
+    			add_location(li2, file, 7, 1, 170);
+    			add_location(li3, file, 8, 1, 272);
     			add_location(ol, file, 4, 0, 48);
     		},
     		l: function claim(nodes) {
