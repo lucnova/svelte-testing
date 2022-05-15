@@ -1,4 +1,6 @@
 <script>
+	import ContactCard from './ContactCard.svelte';
+
 	export let name;
 	export let age;
 
@@ -33,8 +35,11 @@
 <!-- bind => permite el two way data binding -->
 <input type="text" bind:value={name} />
 <!-- IMPORTANTE: Hay que ser muy especificos con la dirección del flow de datos; no abusar -->
-
 <!-- Para forms esta bien -->
+
+<!-- PARA MANDAR PROPS: -->
+<ContactCard username={name} />
+
 <style>
 	h1 {
 		color: purple;
