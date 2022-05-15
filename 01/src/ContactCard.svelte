@@ -7,7 +7,8 @@
 
 <div class="contactcard__container">
 	<header>
-		<div class="contactcard__thumb">
+		<!-- Clases condicionales: Syntax; class:CLASE="{CONDICION A CUMPLIR}"  -->
+		<div class="contactcard__thumb" class:contactcard__thumb__placeholder="{avatarURL === ''}">
 			<img src="{avatarURL}" alt="Avatar" />
 		</div>
 		<div class="contactcard__userdata">
@@ -71,5 +72,11 @@
 	.contactcard__description {
 		border-top: 1px solid #ccc;
 		padding: 1rem;
+	}
+
+	.contactcard__thumb__placeholder {
+		background-color: #ffe7e7;
+		text-align: center;
+		margin-top: auto;
 	}
 </style>
