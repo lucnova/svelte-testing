@@ -1,19 +1,22 @@
 <script>
 	export let username;
+	export let jobTitle;
+	export let description;
+	export let avatarURL;
 </script>
 
 <div class="contactcard__container">
 	<header>
 		<div class="contactcard__thumb">
-			<img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="Avatar" />
+			<img src="{avatarURL}" alt="Avatar" />
 		</div>
 		<div class="contactcard__userdata">
 			<h1>{username}</h1>
-			<h2>Job Title</h2>
+			<h2>{jobTitle}</h2>
 		</div>
 	</header>
 	<div class="contactcard__description">
-		<p>A short description</p>
+		<p>{description}</p>
 	</div>
 </div>
 

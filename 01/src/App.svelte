@@ -6,6 +6,8 @@
 
 	export let jobTitle;
 	export let description;
+	
+	export let avatarURL;
 
 	// * REACTIVE VARIABLES: ($:) => Equivalente a los efectos de React.
 	// La primer variable indicada del lado derecho es la que hará los cambios automaticamente
@@ -42,6 +44,8 @@
 		<input name="contact_jobtitle" type="text" bind:value={jobTitle} />
 		<label for="contact_desc">Description:</label>
 		<input name="contact_desc" type="text" bind:value={description} />
+		<label for="contact_avatarurl">Avatar URL:</label>
+		<input name="contact_avatarurl" type="text" bind:value={avatarURL} />
 	</div>
 	<div class="app__actions">
 		<h1>Hello {uppercaseName}, I'm {age} years old.</h1>
@@ -53,7 +57,7 @@
 <!-- Para forms esta bien -->
 
 <!-- PARA MANDAR PROPS: -->
-<ContactCard username={name} />
+<ContactCard username={name} {jobTitle} {description} {avatarURL} />
 
 <style>
 	.app__row {
