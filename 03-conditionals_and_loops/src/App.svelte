@@ -5,6 +5,12 @@
 	let title = "";
 	let image = "";
 	let description = "";
+
+	let isDone = false;
+
+	const handleAddContact = (e) => {
+		isDone = true;
+	};
 </script>
 
 <div id="form">
@@ -26,7 +32,20 @@
 	</div>
 </div>
 
-<ContactCard userName={name} jobTitle={title} {description} userImage={image} />
+<button on:click={handleAddContact}>Done</button>
+
+<!-- {#} => BLOCK STATEMENT.  Statement que afecta a multiples líneas del HTML -->
+<!--	
+	Todo lo que esté entre el statement solo será visto si la condición se cumple 
+-->
+{#if isDone}
+	<ContactCard
+		userName={name}
+		jobTitle={title}
+		{description}
+		userImage={image}
+	/>
+{/if}
 
 <style>
 	#form {
