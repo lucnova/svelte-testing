@@ -22,6 +22,7 @@
 			return;
 		}
 		contactData = {
+			id: new Date().getSeconds(),
 			name,
 			title,
 			image,
@@ -78,8 +79,10 @@
 <!-- {#each} => Loop de objetos iterable  -->
 <!--	
 	Se puede usar un {:else}; cuando el iterable esta vacío
+	Equivalente key en React: ([ID])
+	{#each [LISTA] as [ITEM], [INDICE] ([IDENTIFICADOR])}
 -->
-{#each contacts as contact, i}
+{#each contacts as contact, i (contact.id)}
 	<h2># {i + 1}</h2>
 	<ContactCard
 		userName={contact.name}
