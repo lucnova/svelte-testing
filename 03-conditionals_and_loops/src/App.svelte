@@ -1,10 +1,13 @@
 <script>
 	import ContactCard from "./ContactCard.svelte";
 
-	let name = "Max";
+	let name = "Luc";
 	let title = "";
 	let image = "";
 	let description = "";
+
+	let contactData = null;
+	let contacts = [];
 
 	let formState = "empty";
 
@@ -18,7 +21,23 @@
 			formState = "invalid";
 			return;
 		}
+		contactData = {
+			name,
+			title,
+			image,
+			description,
+		};
+		// * ACTUALIZAR COMO ESTADO DE REACT
+		contacts = [...contacts, { ...contactData }];
 		formState = "valid";
+	};
+
+	const handleDeleteFirstContact = () => {
+		contacts = contacts.slice(1);
+	};
+
+	const handleDeleteLastContact = () => {
+		contacts = contacts.slice(0, -1);
 	};
 </script>
 
@@ -43,22 +62,34 @@
 
 <button on:click={handleAddContact}>Done</button>
 
+<button on:click={handleDeleteFirstContact}>Delete First Contact</button>
+<button on:click={handleDeleteLastContact}>Delete Last Contact</button>
+
 <!-- {#} => BLOCK STATEMENT.  Statement que afecta a multiples líneas del HTML -->
 <!--	
 	Todo lo que esté entre el statement solo será visto si la condición se cumple 
 -->
-{#if formState === "valid"}
-	<ContactCard
-		userName={name}
-		jobTitle={title}
-		{description}
-		userImage={image}
-	/>
-{:else if formState === "invalid"}
+{#if formState === "invalid"}
 	<p>Make sure all the fields are filled.</p>
 {:else}
 	<p>Fill in the form to proceed.</p>
 {/if}
+
+<!-- {#each} => Loop de objetos iterable  -->
+<!--	
+	Se puede usar un {:else}; cuando el iterable esta vacío
+-->
+{#each contacts as contact, i}
+	<h2># {i + 1}</h2>
+	<ContactCard
+		userName={contact.name}
+		jobTitle={contact.title}
+		description={contact.description}
+		userImage={contact.image}
+	/>
+{:else}
+	<p>No contacts added as of now...</p>
+{/each}
 
 <style>
 	#form {
