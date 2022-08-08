@@ -6,10 +6,19 @@
 	let image = "";
 	let description = "";
 
-	let isDone = false;
+	let formState = "empty";
 
 	const handleAddContact = (e) => {
-		isDone = true;
+		if (
+			name.trim().length === 0 ||
+			title.trim().length === 0 ||
+			image.trim().length === 0 ||
+			description.trim().length === 0
+		) {
+			formState = "invalid";
+			return;
+		}
+		formState = "valid";
 	};
 </script>
 
@@ -38,13 +47,17 @@
 <!--	
 	Todo lo que esté entre el statement solo será visto si la condición se cumple 
 -->
-{#if isDone}
+{#if formState === "valid"}
 	<ContactCard
 		userName={name}
 		jobTitle={title}
 		{description}
 		userImage={image}
 	/>
+{:else if formState === "invalid"}
+	<p>Make sure all the fields are filled.</p>
+{:else}
+	<p>Fill in the form to proceed.</p>
 {/if}
 
 <style>
