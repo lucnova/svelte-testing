@@ -1,4 +1,6 @@
 <script>
+import { prevent_default } from 'svelte/internal';
+
 	import ContactCard from "./ContactCard.svelte";
 
 	let name = "Luc";
@@ -60,6 +62,15 @@
 		<textarea rows="3" bind:value={description} id="desc" />
 	</div>
 </div>
+
+<!-- EVENT MODIFIERS -->
+<!--
+	Se pueden añadir modificadores de evento al lado, separando con un "|".
+	Ej.
+	"|once" => Se ejecutará una vez y el evento se remueve.
+	"|stopPropagation" => Para evitar propagación de evento
+	"|preventDefault" => Para evitar el comportamiento por defecto (submit) como e.preventDefault();
+-->
 
 <button on:click={handleAddContact}>Done</button>
 
